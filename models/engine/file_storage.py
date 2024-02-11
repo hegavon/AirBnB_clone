@@ -1,0 +1,47 @@
+#!/usr/bin/python3
+"""Module for FileStorage class."""
+import json
+from models import base_model
+from models.user import User
+
+
+class FileStorage:
+    """Class for serializing and deserializing
+    instances to JSON file and vice-versa.
+    """
+
+    __file_path = "file.json"
+    __objects = {}
+
+    def all(self):
+        """Returns the dictionary __objects."""
+        return FileStorage.__objects
+
+    @classmethod
+    def new(cls, obj):
+        """Sets in __objects the obj with key <obj class name>.id."""
+        key = "{}.{}".format(obj.__class__.__name__, obj.id)
+        FileStorage.__objects[key] = obj
+
+    @classmethod
+    def save(cls):
+        """Serializes __objects to the JSON file (path: __file_path)."""
+        serialized_objects = {}
+        for key, value in FileStorage.__objects.items():
+            serialized_objects[key] = value.to_dict()
+        with open(cls.__file_path, "w", encoding="utf-8") as json_file:
+            json.dump(serialized_objects, json_file)
+
+    @classmethod
+    def reload(cls):
+        """Deserializes the JSON file to __objects."""
+        try:
+            with open(cls.__file_path, "r", encoding="utf-8") as json_file:
+                loaded_objects = json.load(json_file)
+            for key, value in loaded_objects.items():
+                class_name = value['__class__']
+                cls = base_model.classes[class_name]
+                obj = cls(**value)
+                FileStorage.__objects[key] = obj
+        except FileNotFoundError:
+            pass
