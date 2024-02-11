@@ -1,17 +1,15 @@
 #!/usr/bin/python3
+"""user class
 """
-Module User class
-"""
+
 from models.base_model import BaseModel
+import json
 
 
 class User(BaseModel):
-    """User class that inherits from BaseModel."""
+    '''base model class'''
 
-    def __init__(self, *args, **kwargs):
-        """Initialize User class."""
-        super().__init__(*args, **kwargs)
-        self.email = ""
-        self.password = ""
-        self.first_name = ""
-        self.last_name = ""
+    email = ""
+    password = ""
+    first_name = ""
+    last_name = ""

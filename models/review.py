@@ -6,11 +6,13 @@ from models.base_model import BaseModel
 
 
 class Review(BaseModel):
-    """Review class that inherits from BaseModel."""
+    """
+    Inherits from BaseModel
+    Public class attributes:
+        place_id:            (str) will be Place.id
+        user_id:             (str) will be User.id
+        text:                (str)
+    """
     place_id = ""
     user_id = ""
     text = ""
-
-    def __init__(self, *args, **kwargs):
-        """Initialize Review class."""
-        super().__init__(*args, **kwargs)
