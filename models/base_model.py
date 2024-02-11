@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
 Module BaseModel
-Parent of all classes
+(Parent of all classes)
 """
 from datetime import datetime
 from uuid import uuid4
@@ -21,8 +21,6 @@ class BaseModel():
     def __init__(self, *arg, **kwargs):
         """
         Initialize attributes: random uuid, dates created/updated
-
-
         """
         if kwargs:
             for key, val in kwargs.items():
@@ -44,7 +42,7 @@ class BaseModel():
 
     def __str__(self):
         """
-        Return string of info about model
+        Return string representation of BaseModel instance.
         """
         return ('[{}] ({}) {}'.
                 format(self.__class__.__name__, self.id, self.__dict__))
@@ -64,9 +62,8 @@ class BaseModel():
         return dic
 
     def save(self):
-        """
-        Update instance with updated time & save to serialized file
-        """
+        """Update the public instance attribute
+        updated_at with the current datetime."""
         self.updated_at = datetime.now()
         models.storage.save()
 
