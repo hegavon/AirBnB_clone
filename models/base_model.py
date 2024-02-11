@@ -1,12 +1,11 @@
 #!/usr/bin/python3
-from datetime import datetime
-from uuid import uuid4
-import models
-
 """
 Module BaseModel
 Parent of all classes
 """
+from datetime import datetime
+from uuid import uuid4
+import models
 
 
 class BaseModel():
