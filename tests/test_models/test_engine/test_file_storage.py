@@ -11,7 +11,7 @@ from models.city import City
 from models.amenity import Amenity
 from models.place import Place
 from models.review import Review
-from datetime import datetime
+
 
 class TestFileStorage(unittest.TestCase):
     """Test cases for file storage"""
@@ -36,18 +36,35 @@ class TestFileStorage(unittest.TestCase):
     def test_new(self):
         """Test new method"""
         state = State()
+        city = City()
+        amenity = Amenity()
+        place = Place()
+        review = Review()
         self.assertIn("State." + state.id, self.storage.all())
+        self.assertIn("City." + city.id, self.storage.all())
+        self.assertIn("Amenity." + amenity.id, self.storage.all())
+        self.assertIn("Place." + place.id, self.storage.all())
+        self.assertIn("Review." + review.id, self.storage.all())
 
     def test_save_reload(self):
         """Test save and reload methods"""
         state = State()
         city = City()
+        amenity = Amenity()
+        place = Place()
+        review = Review()
         state_id = "State." + state.id
         city_id = "City." + city.id
+        amenity_id = "Amenity." + amenity.id
+        place_id = "Place." + place.id
+        review_id = "Review." + review.id
         self.storage.save()
         models.storage.reload()
         self.assertIn(state_id, self.storage.all())
         self.assertIn(city_id, self.storage.all())
+        self.assertIn(amenity_id, self.storage.all())
+        self.assertIn(place_id, self.storage.all())
+        self.assertIn(review_id, self.storage.all())
 
     def test_reload(self):
         """Test reload method"""
@@ -56,6 +73,6 @@ class TestFileStorage(unittest.TestCase):
         self.storage.reload()
         self.assertIn("State." + state.id, self.storage.all())
 
+
 if __name__ == "__main__":
     unittest.main()
-
