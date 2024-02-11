@@ -6,7 +6,6 @@ Unittest classes:
     TestCitySave
     TestCityToDict
 """
-import os
 import models
 import unittest
 from datetime import datetime
@@ -154,11 +153,11 @@ class TestCityToDict(unittest.TestCase):
         self.city.id = "123456"
         self.city.created_at = self.city.updated_at = dt
         tdict = {
-            'id': '123456',
-            '__class__': 'City',
-            'created_at': dt.isoformat(),
-            'updated_at': dt.isoformat(),
-        }
+                'id': '123456',
+                '__class__': 'City',
+                'created_at': dt.isoformat(),
+                'updated_at': dt.isoformat(),
+                }
         self.assertDictEqual(self.city.to_dict(), tdict)
 
     def test_contrast_to_dict_dunder_dict(self):
@@ -171,4 +170,3 @@ class TestCityToDict(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-
