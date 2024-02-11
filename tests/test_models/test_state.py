@@ -6,7 +6,6 @@ Unittest classes:
     TestState_save
     TestState_to_dict
 """
-import os
 import models
 import unittest
 from datetime import datetime
