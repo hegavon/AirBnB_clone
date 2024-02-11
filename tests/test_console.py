@@ -33,7 +33,10 @@ class TestConsole(unittest.TestCase):
         with patch('sys.stdout', new=StringIO()) as f:
             self.console.onecmd("create User")
             output = f.getvalue().strip()
-            self.assertTrue(output)
+            self.assertIn("User", output)
+            user_id = output.split()[3][1:-1]
+            user_instance = storage.all()["User.{}".format(user_id)]
+            self.assertIsInstance(user_instance, User)
 
     def test_show(self):
         """Test show command"""
