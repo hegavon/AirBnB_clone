@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/python4
 """Defines the HBnB console."""
 import cmd
 import re
