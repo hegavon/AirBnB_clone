@@ -7,7 +7,7 @@ from models.base_model import BaseModel
 
 class Place(BaseModel):
     """
-    Inherits from BaseModel
+    Inherits from the Parent class(BaseModel)
     Public class attributes:
         city_id:             (str) will be City.id
         user_id:             (str) will be User.id

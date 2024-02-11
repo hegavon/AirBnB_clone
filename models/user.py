@@ -1,12 +1,13 @@
 #!/usr/bin/python3
-"""user class
+"""
+Module User class
 """
 from models.base_model import BaseModel
 import json
 
 
 class User(BaseModel):
-    '''base model class'''
+    '''Inherits from the Parent class(BaseModel)'''
 
     email = ""
     password = ""

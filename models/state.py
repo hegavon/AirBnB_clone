@@ -7,7 +7,7 @@ from models.base_model import BaseModel
 
 class State(BaseModel):
     """
-    Inherits from BaseModel
+    Inherits from the Parent class(BaseModel)
     Public class attribute:
         name: (str)
     """
