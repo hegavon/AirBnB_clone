@@ -6,7 +6,6 @@ Unittest classes:
     TestAmenitySave
     TestAmenityToDict
 """
-import os
 import models
 import unittest
 from datetime import datetime
@@ -154,11 +153,11 @@ class TestAmenityToDict(unittest.TestCase):
         self.amenity.id = "123456"
         self.amenity.created_at = self.amenity.updated_at = dt
         tdict = {
-            'id': '123456',
-            '__class__': 'Amenity',
-            'created_at': dt.isoformat(),
-            'updated_at': dt.isoformat(),
-        }
+                'id': '123456',
+                '__class__': 'Amenity',
+                'created_at': dt.isoformat(),
+                'updated_at': dt.isoformat(),
+                }
         self.assertDictEqual(self.amenity.to_dict(), tdict)
 
     def test_contrast_to_dict_dunder_dict(self):
@@ -171,4 +170,3 @@ class TestAmenityToDict(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-
