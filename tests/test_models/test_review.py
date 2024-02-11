@@ -6,7 +6,6 @@ Unittest classes:
     TestReviewSave
     TestReviewToDict
 """
-import os
 import models
 import unittest
 from datetime import datetime
@@ -183,4 +182,3 @@ class TestReviewToDict(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-
