@@ -18,7 +18,7 @@ class BaseModel():
         to_dict(self)
     """
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self, **kwargs):
         """
         Initialize attributes: random uuid, dates created/updated
 
@@ -49,22 +49,10 @@ class BaseModel():
         return ('[{}] ({}) {}'.
                 format(self.__class__.__name__, self.id, self.__dict__))
 
-    def __repr__(self):
-        """
-        returns string representation
-        """
-        return (self.__str__())
-
-    def save(self):
-        """
-        Update instance with updated time & save to serialized file
-        """
-        self.updated_at = datetime.now()
-        models.storage.save()
-
     def to_dict(self):
         """
-        Return dic with string formats of times; add class info to dic
+        Return dictionary containing all key/values of the __dict__ instance;
+         and add class info to dic
         """
         dic = {}
         dic["__class__"] = self.__class__.__name__
@@ -74,3 +62,16 @@ class BaseModel():
             else:
                 dic[k] = v
         return dic
+
+    def save(self):
+        """
+        Update instance with updated time & save to serialized file
+        """
+        self.updated_at = datetime.now()
+        models.storage.save()
+
+    def __repr__(self):
+        """
+        returns string representation
+        """
+        return (self.__str__())
