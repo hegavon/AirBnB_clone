@@ -1,11 +1,9 @@
-.places {
-    text-align: center;
-  }
-  .places h1 {
-    font-size: 30px;
-    text-align: left;
-  }
-  article {
+/*
+ * --- Places Class Style ---
+ */
+
+/* Places style */
+.places article {
     width: 390px;
     border: 1px solid #FF5A5F;
     border-radius: 4px;
@@ -13,8 +11,20 @@
     margin: 20px;
     display: inline-block;
   }
+
+  .places {
+    text-align: center;
+  }
+  
+  /*
+   * --- Places header style ---
+   */
+  .places h1 {
+    font-size: 30px;
+    text-align: left;
+  }
+
   article h2 {
     font-size: 30px;
     text-align: center;
   }
-  
